@@ -18,6 +18,7 @@ Container catalog(Color left, Color right, String text) {
     height: 165.0,
     width: 165.0,
     child: Stack(
+      overflow: Overflow.clip,
       children: [
         Positioned(
           top: 28.0,
@@ -30,9 +31,24 @@ Container catalog(Color left, Color right, String text) {
           child: smallCircle,
         ),
         Positioned(
+          bottom: -10.0,
+          right: -45.0,
+          child: coloredCircleSmall,
+        ),
+        Positioned(
           right: 15.0,
           bottom: 20.0,
           child: mediumCircle,
+        ),
+        Positioned(
+          right: -30.0,
+          top: 33.0,
+          child: coloredCircleBig,
+        ),
+        Positioned(
+          right: -47.0,
+          top: 33.0,
+          child: largeCircle,
         ),
         Center(
           child: Column(
