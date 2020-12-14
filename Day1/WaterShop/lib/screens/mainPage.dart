@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'allCatalogs.dart';
+import '../widgets/catalogDesignWidgets.dart';
 
 Container catalog(Color left, Color right, String text) {
   return Container(
@@ -16,43 +17,64 @@ Container catalog(Color left, Color right, String text) {
     ),
     height: 165.0,
     width: 165.0,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    child: Stack(
       children: [
-        Text(
-          text,
-          style: GoogleFonts.dmSans(
-            fontSize: 23.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+        Positioned(
+          top: 28.0,
+          right: 48.0,
+          child: smallCircle,
+        ),
+        Positioned(
+          bottom: 28.0,
+          left: 70.0,
+          child: smallCircle,
+        ),
+        Positioned(
+          right: 15.0,
+          bottom: 20.0,
+          child: mediumCircle,
+        ),
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                text,
+                style: GoogleFonts.dmSans(
+                  fontSize: 23.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10.0),
+                width: 120.0,
+                child: MaterialButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  elevation: 0.0,
+                  color: Colors.white,
+                  onPressed: () {},
+                  child: Text(
+                    'Show all',
+                    style: GoogleFonts.dmSans(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xff363E52),
+                    ),
+                  ),
+                  highlightElevation: 0.0,
+                  focusElevation: 0.0,
+                  disabledElevation: 0.0,
+                  hoverElevation: 0.0,
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                ),
+              ),
+            ],
           ),
         ),
-        Container(
-          margin: EdgeInsets.only(top: 10.0),
-          width: 120.0,
-          child: MaterialButton(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25.0),
-            ),
-            elevation: 0.0,
-            color: Colors.white,
-            onPressed: () {},
-            child: Text(
-              'Show all',
-              style: GoogleFonts.dmSans(
-                fontSize: 16.0,
-                fontWeight: FontWeight.w600,
-                color: Color(0xff363E52),
-              ),
-            ),
-            highlightElevation: 0.0,
-            focusElevation: 0.0,
-            disabledElevation: 0.0,
-            hoverElevation: 0.0,
-            highlightColor: Colors.transparent,
-            splashColor: Colors.transparent,
-          ),
-        )
       ],
     ),
   );
@@ -60,6 +82,7 @@ Container catalog(Color left, Color right, String text) {
 
 Container mainPage(Size size, BuildContext context) {
   return Container(
+    height: size.height,
     padding: EdgeInsets.symmetric(vertical: 10.0),
     child: SingleChildScrollView(
       scrollDirection: Axis.vertical,

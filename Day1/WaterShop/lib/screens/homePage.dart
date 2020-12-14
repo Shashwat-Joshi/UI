@@ -1,4 +1,6 @@
+import 'package:WaterShop/screens/bucketScreen.dart';
 import 'package:WaterShop/screens/mainPage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -73,12 +75,37 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           actions: [
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-              child: Icon(
-                Icons.shopping_cart_sharp,
-                color: Color(0xff363E52),
-                size: 30.0,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  CupertinoPageRoute(
+                    builder: (context) => BucketScreen(),
+                  ),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+                child: Stack(
+                  children: [
+                    Icon(
+                      Icons.shopping_cart_sharp,
+                      color: Color(0xff363E52),
+                      size: 30.0,
+                    ),
+                    Positioned(
+                      right: 0.0,
+                      top: 0.0,
+                      child: Container(
+                        width: 11.0,
+                        height: 11.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.pink,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -86,7 +113,7 @@ class _HomePageState extends State<HomePage> {
         body: bodyWidgets(size, context),
         bottomNavigationBar: Container(
           padding: EdgeInsets.only(bottom: 13.0),
-          height: 70.0,
+          height: 50.0,
           width: size.width,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
