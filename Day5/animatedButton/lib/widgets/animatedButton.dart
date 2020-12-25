@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 class AnimatedButton extends StatefulWidget {
@@ -52,7 +50,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
       }
     });
     _scalefinalTextAnimation =
-        Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
+        Tween<double>(begin: 0.0, end: 1).animate(_controller);
 
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
