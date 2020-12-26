@@ -50,7 +50,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
       }
     });
     _scalefinalTextAnimation =
-        Tween<double>(begin: 0.0, end: 1).animate(_controller);
+        Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
 
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -71,26 +71,28 @@ class _AnimatedButtonState extends State<AnimatedButton>
       borderRadius: BorderRadius.circular(widget.buttonStyle.borderRadius),
       elevation: widget.buttonStyle.elevation,
       child: InkWell(
+        borderRadius: BorderRadius.circular(widget.buttonStyle.borderRadius),
         onTap: () {
           _controller.forward();
         },
         child: AnimatedContainer(
           duration: _smallDuration,
-          height: widget.iconSize + 16.0,
+          height: widget.iconSize + 24.0,
           decoration: BoxDecoration(
             color: (_currentState == ButtonState.SHOW_ONLY_TEXT)
                 ? widget.buttonStyle.primaryColor
                 : widget.buttonStyle.secondaryColor,
             border: Border.all(
               color: widget.buttonStyle.primaryColor,
+              width: 1.5,
             ),
             borderRadius:
                 BorderRadius.circular(widget.buttonStyle.borderRadius),
           ),
           padding: EdgeInsets.symmetric(
               horizontal:
-                  (_currentState == ButtonState.SHOW_ONLY_ICON) ? 8.0 : 48.0,
-              vertical: 8.0),
+                  (_currentState == ButtonState.SHOW_ONLY_ICON) ? 12.0 : 48.0,
+              vertical: 12.0),
           child: AnimatedSize(
             vsync: this,
             duration: _smallDuration,

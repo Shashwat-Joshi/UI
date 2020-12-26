@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
           initialText: 'Confirm',
           finalText: 'Submitted',
           iconData: Icons.check,
-          iconSize: 32.0,
+          iconSize: 30.0,
           buttonStyle: CustomButtonStyle(
             primaryColor: Colors.green.shade600,
             secondaryColor: Colors.white,
