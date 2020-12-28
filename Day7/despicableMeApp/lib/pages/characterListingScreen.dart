@@ -61,6 +61,12 @@ class _CharacterListingScreenState extends State<CharacterListingScreen> {
             ),
             Expanded(
               child: PageView(
+                onPageChanged: (value) {
+                  setState(() {
+                    _currentPage = value;
+                  });
+                },
+                controller: _pageController,
                 physics: BouncingScrollPhysics(),
                 children: [
                   for (int i = 0; i < characters.length; i++)
@@ -71,6 +77,8 @@ class _CharacterListingScreenState extends State<CharacterListingScreen> {
                       ),
                       child: CharacterWidget(
                         character: characters[i],
+                        controller: _pageController,
+                        currentPage: _currentPage,
                       ),
                     ),
                 ],
